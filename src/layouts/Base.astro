@@ -33,8 +33,7 @@ const { transparentHeader = false, ...seoProps } = Astro.props;
     <SEO {...seoProps} />
   </head>
   <body class="min-h-screen flex flex-col bg-[var(--color-cream)]">
-    {!transparentHeader && <div class="bg-[var(--color-wood)] h-20" />}
-    <Header />
+    <Header solid={!transparentHeader} />
     <main class="flex-1">
       <slot />
     </main>

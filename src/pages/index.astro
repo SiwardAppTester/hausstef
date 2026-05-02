@@ -33,18 +33,18 @@ const homeSchema = {
       height="1333"
       fetchpriority="high"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/85"></div>
 
     <div class="relative max-w-7xl mx-auto px-6 pb-20 md:pb-28 text-white">
-      <div class="text-xs uppercase tracking-[0.3em] mb-4 opacity-90">
+      <div class="kicker mb-4 opacity-90 text-shadow-soft">
         Sinds 2008 · Ehrwald, Tirol
       </div>
-      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-4xl drop-shadow-lg">
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-4xl text-shadow-strong">
         Vier appartementen,<br />
         <span class="italic">één familie,</span><br />
         vlak onder de Zugspitze.
       </h1>
-      <p class="mt-6 text-lg md:text-xl max-w-2xl opacity-95 drop-shadow">
+      <p class="mt-6 text-lg md:text-xl max-w-2xl opacity-95 text-shadow-soft">
         Haus Stefanie verhuurt vier 4-persoons vakantieappartementen in Ehrwald — direct van de Nederlandse eigenaars. Geen tussenpersoon, geen commissie, gewoon persoonlijk contact.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
@@ -58,19 +58,19 @@ const homeSchema = {
     </div>
   </section>
 
-  <section class="bg-[var(--color-cream-dark)] border-y border-[var(--color-mist)]">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+  <section class="bg-white border-y border-[var(--color-mist)]">
+    <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
       {[
-        { num: '4', label: '4-persoons appartementen' },
+        { num: '4', label: 'appartementen, allemaal 4-persoons' },
         { num: '0%', label: 'boekingscommissie' },
-        { num: 'NL', label: 'eigenaars, persoonlijk contact' },
-        { num: '850 km', label: 'rijden vanaf Utrecht' },
+        { num: 'NL', label: 'persoonlijk contact via de eigenaar' },
+        { num: '850', label: 'kilometer rijden vanaf Utrecht' },
       ].map((item) => (
         <div>
-          <div class="font-display text-4xl md:text-5xl text-[var(--color-tirol)]">
+          <div class="font-display text-3xl md:text-4xl text-[var(--color-wood)]">
             {item.num}
           </div>
-          <div class="mt-1 text-xs uppercase tracking-widest text-[var(--color-stone)]">
+          <div class="mt-2 text-sm text-[var(--color-stone)] leading-snug">
             {item.label}
           </div>
         </div>
@@ -79,7 +79,7 @@ const homeSchema = {
   </section>
 
   <section class="max-w-4xl mx-auto px-6 py-20 text-center">
-    <div class="text-xs uppercase tracking-[0.3em] text-[var(--color-tirol)] mb-4">
+    <div class="kicker text-[var(--color-tirol)] mb-4">
       Welkom bij Haus Stefanie
     </div>
     <h2 class="font-display text-4xl md:text-5xl mb-6">
@@ -94,7 +94,7 @@ const homeSchema = {
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex items-end justify-between flex-wrap gap-6 mb-12">
         <div>
-          <div class="text-xs uppercase tracking-[0.3em] text-[var(--color-tirol)] mb-3">De appartementen</div>
+          <div class="kicker text-[var(--color-tirol)] mb-3">De appartementen</div>
           <h2 class="font-display text-4xl md:text-5xl max-w-2xl">Vier units, allemaal voor 4 personen.</h2>
         </div>
         <p class="max-w-md text-[var(--color-stone)]">
@@ -111,9 +111,9 @@ const homeSchema = {
   <section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-6">
     <a href="/winter" class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
       <img src={IMG.snowMountain} alt="Wintersport in Ehrwald, Zugspitz Arena" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-      <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-        <div class="text-xs uppercase tracking-[0.3em] opacity-80 mb-2">December – April</div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 text-white text-shadow-soft">
+        <div class="kicker opacity-85 mb-2">December – April</div>
         <h3 class="font-display text-3xl md:text-4xl mb-2">Sneeuwzeker, dankzij de Zugspitze</h3>
         <p class="text-sm opacity-90 max-w-md">
           Ski-in op vijf gebieden, gletscherski tot ver in het voorjaar, en een dorp dat nooit overrompeld voelt.
@@ -123,9 +123,9 @@ const homeSchema = {
     </a>
     <a href="/zomer" class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
       <img src={IMG.alpsFlowers} alt="Zomerwandelen in Tirol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-      <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-        <div class="text-xs uppercase tracking-[0.3em] opacity-80 mb-2">Mei – Oktober</div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 text-white text-shadow-soft">
+        <div class="kicker opacity-85 mb-2">Mei – Oktober</div>
         <h3 class="font-display text-3xl md:text-4xl mb-2">Wandelparadijs in groen Tirol</h3>
         <p class="text-sm opacity-90 max-w-md">
           Honderden kilometers gemarkeerde routes, koele bergmeren en kabelbanen die zomers gewoon doordraaien.
@@ -135,15 +135,15 @@ const homeSchema = {
     </a>
   </section>
 
-  <section class="bg-[var(--color-wood)] text-[var(--color-cream)] py-20">
+  <section class="bg-[var(--color-cream-dark)] py-20 border-y border-[var(--color-mist)]">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <div class="text-xs uppercase tracking-[0.3em] text-[var(--color-tirol)] opacity-90 mb-3">De locatie</div>
-        <h2 class="font-display text-4xl md:text-5xl mb-6 text-white">Net buiten het centrum, vlak onder de berg.</h2>
-        <p class="opacity-90 leading-relaxed mb-4">
+        <div class="kicker text-[var(--color-tirol)] mb-3">De locatie</div>
+        <h2 class="font-display text-4xl md:text-5xl mb-6">Net buiten het centrum, vlak onder de berg.</h2>
+        <p class="text-[var(--color-stone)] leading-relaxed mb-4">
           Haus Stefanie ligt aan een rustige weg op vijf minuten lopen van het centrum van Ehrwald — dichtbij genoeg voor een avondje uit, ver genoeg voor stilte 's nachts. De skiliften en de Ehrwalder Almbahn liggen op een paar minuten rijden.
         </p>
-        <address class="not-italic opacity-90 mb-6">
+        <address class="not-italic text-[var(--color-stone)] mb-6">
           {SITE.address.street}<br />
           {SITE.address.postalCode} {SITE.address.city}, {SITE.address.region}
         </address>
@@ -151,7 +151,7 @@ const homeSchema = {
           href={`https://www.google.com/maps/search/?api=1&query=${SITE.address.lat},${SITE.address.lng}`}
           target="_blank"
           rel="noopener"
-          class="inline-flex items-center gap-2 bg-white text-[var(--color-wood)] px-6 py-3 rounded-full font-medium hover:bg-[var(--color-cream-dark)] transition-colors"
+          class="inline-flex items-center gap-2 bg-[var(--color-wood)] text-white px-6 py-3 rounded-full font-medium hover:bg-black transition-colors"
         >
           Open in Google Maps →
         </a>

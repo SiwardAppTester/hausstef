@@ -67,16 +67,16 @@ const aptSchema = {
   <!-- HERO -->
   <section class="relative min-h-[70vh] flex items-end overflow-hidden">
     <img src={IMG[apt.hero]} alt={`${apt.name} bij Haus Stefanie in Ehrwald — ${apt.tagline}`} class="absolute inset-0 w-full h-full object-cover" width="1600" height="1067" fetchpriority="high" />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/85"></div>
     <div class="relative max-w-7xl mx-auto px-6 pb-16 text-white">
-      <a href="/#appartementen" class="text-sm opacity-90 hover:opacity-100 underline underline-offset-4">← Alle appartementen</a>
-      <h1 class="mt-3 font-display text-5xl md:text-7xl drop-shadow-lg">{apt.name}</h1>
-      <p class="mt-3 text-lg md:text-xl max-w-2xl opacity-95 drop-shadow">{apt.tagline}</p>
+      <a href="/#appartementen" class="text-sm opacity-90 hover:opacity-100 underline underline-offset-4 text-shadow-soft">← Alle appartementen</a>
+      <h1 class="mt-3 font-display text-5xl md:text-7xl text-shadow-strong">{apt.name}</h1>
+      <p class="mt-3 text-lg md:text-xl max-w-2xl opacity-95 text-shadow-soft">{apt.tagline}</p>
       <div class="mt-6 flex flex-wrap gap-2 text-sm">
-        <span class="bg-white/15 backdrop-blur border border-white/30 px-4 py-1.5 rounded-full">{apt.capacity} personen</span>
-        <span class="bg-white/15 backdrop-blur border border-white/30 px-4 py-1.5 rounded-full">{apt.bedrooms} slaapkamers</span>
-        <span class="bg-white/15 backdrop-blur border border-white/30 px-4 py-1.5 rounded-full">{apt.size}</span>
-        <span class="bg-[var(--color-tirol)] text-white px-4 py-1.5 rounded-full">vanaf € {apt.priceFrom}/week</span>
+        <span class="bg-black/40 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full">{apt.capacity} personen</span>
+        <span class="bg-black/40 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full">{apt.bedrooms} slaapkamers</span>
+        <span class="bg-black/40 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full">{apt.size}</span>
+        <span class="bg-[var(--color-tirol)] text-white px-4 py-1.5 rounded-full font-medium">vanaf € {apt.priceFrom}/week</span>
       </div>
     </div>
   </section>
@@ -94,7 +94,7 @@ const aptSchema = {
     <div class="lg:col-span-2 space-y-12">
       <!-- description -->
       <div>
-        <div class="text-xs uppercase tracking-[0.3em] text-[var(--color-tirol)] mb-3">Over dit appartement</div>
+        <div class="kicker text-[var(--color-tirol)] mb-3">Over dit appartement</div>
         <h2 class="font-display text-3xl md:text-4xl mb-4">{apt.tagline}</h2>
         <p class="text-lg text-[var(--color-stone)] leading-relaxed">{apt.description}</p>
       </div>

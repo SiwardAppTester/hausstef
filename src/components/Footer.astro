@@ -6,24 +6,24 @@ const year = new Date().getFullYear();
 <footer class="bg-[var(--color-wood)] text-[var(--color-cream)] mt-24">
   <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-12">
     <div>
-      <div class="font-display text-2xl mb-3">{SITE.name}</div>
-      <p class="text-sm opacity-80 leading-relaxed">
+      <div class="font-display text-2xl mb-3 text-white">{SITE.name}</div>
+      <p class="text-sm leading-relaxed text-white/80">
         Vier vakantie­appartementen in Ehrwald, Tirol — direct verhuurd door de Nederlandse familie Hanegraaf. Geen tussenpersoon, geen commissie.
       </p>
     </div>
 
     <div>
-      <div class="text-xs uppercase tracking-widest opacity-60 mb-3">Navigatie</div>
+      <div class="kicker text-white/60 mb-3">Navigatie</div>
       <ul class="space-y-2 text-sm">
         {NAV.map((item) => (
-          <li><a href={item.href} class="hover:text-white transition-colors">{item.label}</a></li>
+          <li><a href={item.href} class="text-white/85 hover:text-white transition-colors">{item.label}</a></li>
         ))}
       </ul>
     </div>
 
     <div>
-      <div class="text-xs uppercase tracking-widest opacity-60 mb-3">Adres</div>
-      <address class="not-italic text-sm leading-relaxed opacity-90">
+      <div class="kicker text-white/60 mb-3">Adres</div>
+      <address class="not-italic text-sm leading-relaxed text-white/85">
         {SITE.address.street}<br />
         {SITE.address.postalCode} {SITE.address.city}<br />
         {SITE.address.region}, Oostenrijk
@@ -32,7 +32,7 @@ const year = new Date().getFullYear();
         href={`https://www.google.com/maps/search/?api=1&query=${SITE.address.lat},${SITE.address.lng}`}
         target="_blank"
         rel="noopener"
-        class="inline-block mt-3 text-sm text-[var(--color-cream)] underline underline-offset-4 opacity-90 hover:opacity-100"
+        class="inline-block mt-3 text-sm underline underline-offset-4 text-white/85 hover:text-white"
       >
         Bekijk op kaart →
       </a>
@@ -40,7 +40,7 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-6 py-6 text-xs opacity-60 flex flex-wrap justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-6 py-6 text-xs text-white/55 flex flex-wrap justify-between gap-4">
       <div>© {year} {SITE.name}. Alle rechten voorbehouden.</div>
       <div>Een familieproject — geen boekingsplatform, geen tussenpersoon.</div>
     </div>

@@ -30,10 +30,17 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: var(--color-wood);
+  /* No color set — headings inherit from their parent, so `text-white` on a hero wrapper works as expected. */
 }
 
 .prose-warm p { @apply text-stone-700 leading-relaxed; }
 .prose-warm h2 { @apply text-3xl md:text-4xl mt-12 mb-4; }
 .prose-warm h3 { @apply text-2xl mt-8 mb-3; }
 .prose-warm a { @apply text-[var(--color-tirol)] underline underline-offset-4 hover:text-[var(--color-tirol-dark)]; }
+
+/* Reliable white-text-on-image readability (works regardless of which part of the photo is bright). */
+.text-shadow-soft { text-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.25); }
+.text-shadow-strong { text-shadow: 0 1px 2px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.4); }
+
+/* Eyebrow / kicker label, used consistently throughout the site. */
+.kicker { @apply text-xs uppercase tracking-[0.25em] font-medium; }
