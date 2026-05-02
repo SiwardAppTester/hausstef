@@ -1,0 +1,86 @@
+---
+type Props = { apartmentName: string; ownerEmail: string; ownerPhone: string };
+const { apartmentName, ownerEmail, ownerPhone } = Astro.props;
+---
+
+<form
+  class="bg-white rounded-2xl p-6 md:p-8 shadow-sm"
+  method="post"
+  action={`mailto:${ownerEmail}?subject=Aanvraag%20${encodeURIComponent(apartmentName)}`}
+  enctype="text/plain"
+>
+  <h3 class="font-display text-2xl mb-1">Stuur een aanvraag</h3>
+  <p class="text-sm text-[var(--color-stone)] mb-6">
+    Direct naar de eigenaar — meestal binnen een dag antwoord.
+  </p>
+
+  <div class="grid sm:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-xs uppercase tracking-widest text-[var(--color-stone)]">Naam</span>
+      <input
+        type="text"
+        name="Naam"
+        required
+        class="mt-1 w-full rounded-lg border border-[var(--color-mist)] px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-[var(--color-tirol)]/30"
+      />
+    </label>
+    <label class="block">
+      <span class="text-xs uppercase tracking-widest text-[var(--color-stone)]">E-mail</span>
+      <input
+        type="email"
+        name="Email"
+        required
+        class="mt-1 w-full rounded-lg border border-[var(--color-mist)] px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-[var(--color-tirol)]/30"
+      />
+    </label>
+    <label class="block">
+      <span class="text-xs uppercase tracking-widest text-[var(--color-stone)]">Aankomst</span>
+      <input
+        type="date"
+        name="Aankomst"
+        class="mt-1 w-full rounded-lg border border-[var(--color-mist)] px-3 py-2.5"
+      />
+    </label>
+    <label class="block">
+      <span class="text-xs uppercase tracking-widest text-[var(--color-stone)]">Vertrek</span>
+      <input
+        type="date"
+        name="Vertrek"
+        class="mt-1 w-full rounded-lg border border-[var(--color-mist)] px-3 py-2.5"
+      />
+    </label>
+    <label class="block sm:col-span-2">
+      <span class="text-xs uppercase tracking-widest text-[var(--color-stone)]">Aantal personen</span>
+      <input
+        type="number"
+        name="Personen"
+        min="1"
+        max="6"
+        value="4"
+        class="mt-1 w-full rounded-lg border border-[var(--color-mist)] px-3 py-2.5"
+      />
+    </label>
+    <label class="block sm:col-span-2">
+      <span class="text-xs uppercase tracking-widest text-[var(--color-stone)]">Bericht</span>
+      <textarea
+        name="Bericht"
+        rows="4"
+        class="mt-1 w-full rounded-lg border border-[var(--color-mist)] px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-[var(--color-tirol)]/30"
+      ></textarea>
+    </label>
+  </div>
+
+  <button
+    type="submit"
+    class="mt-6 w-full bg-[var(--color-tirol)] hover:bg-[var(--color-tirol-dark)] text-white font-medium py-3.5 rounded-full transition-colors"
+  >
+    Verstuur aanvraag
+  </button>
+
+  <p class="mt-4 text-xs text-[var(--color-stone)] text-center">
+    Liever bellen?
+    <a href={`tel:${ownerPhone.replace(/\s/g, '')}`} class="underline underline-offset-4 hover:text-[var(--color-tirol)]">
+      {ownerPhone}
+    </a>
+  </p>
+</form>

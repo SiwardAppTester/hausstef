@@ -1,0 +1,34 @@
+---
+import { SITE } from '../data/site';
+
+type Props = { trail: { label: string; href?: string }[] };
+const { trail } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: trail.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    ...(c.href ? { item: `${SITE.url}${c.href}` } : {}),
+  })),
+};
+---
+
+<nav aria-label="Breadcrumb" class="text-sm">
+  <ol class="flex flex-wrap items-center gap-2 text-[var(--color-stone)]">
+    {trail.map((c, i) => (
+      <li class="flex items-center gap-2">
+        {c.href ? (
+          <a href={c.href} class="hover:text-[var(--color-tirol)] transition-colors">{c.label}</a>
+        ) : (
+          <span class="text-[var(--color-wood)] font-medium">{c.label}</span>
+        )}
+        {i < trail.length - 1 && <span aria-hidden="true" class="opacity-40">/</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

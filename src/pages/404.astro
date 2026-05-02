@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+---
+
+<Base
+  title="Pagina niet gevonden — Haus Stefanie"
+  description="Deze pagina bestaat niet meer. Ga terug naar de homepage om een appartement te bekijken."
+  path="/404"
+  image={IMG.snowMountain}
+>
+  <section class="max-w-3xl mx-auto px-6 py-32 text-center">
+    <div class="font-display text-9xl text-[var(--color-tirol)] mb-4">404</div>
+    <h1 class="font-display text-4xl mb-4">Deze pagina is verdwaald in de bergen.</h1>
+    <p class="text-[var(--color-stone)] mb-8">
+      We konden de pagina die je zocht niet vinden. Misschien is hij verhuisd, of zat er een typo in de link.
+    </p>
+    <a href="/" class="inline-block bg-[var(--color-tirol)] hover:bg-[var(--color-tirol-dark)] text-white px-7 py-3 rounded-full font-medium">
+      Terug naar de homepage
+    </a>
+  </section>
+</Base>

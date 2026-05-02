@@ -1,0 +1,46 @@
+---
+import { IMG } from '../data/images';
+import type { Apartment } from '../data/apartments';
+
+type Props = { apt: Apartment };
+const { apt } = Astro.props;
+---
+
+<a
+  href={`/${apt.slug}`}
+  class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+>
+  <div class="aspect-[4/3] overflow-hidden bg-[var(--color-mist)]">
+    <img
+      src={IMG[apt.hero]}
+      alt={`${apt.name} — ${apt.tagline} (${apt.capacity}-persoons appartement in Ehrwald)`}
+      loading="lazy"
+      width="800"
+      height="600"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+    />
+  </div>
+  <div class="p-6">
+    <div class="flex items-baseline justify-between gap-3 mb-2">
+      <h3 class="font-display text-2xl">{apt.name}</h3>
+      <span class="text-xs uppercase tracking-widest text-[var(--color-stone)]">
+        {apt.capacity} pers · {apt.size}
+      </span>
+    </div>
+    <p class="text-[var(--color-stone)] text-sm leading-relaxed mb-4">
+      {apt.tagline}
+    </p>
+    <div class="flex items-center justify-between pt-4 border-t border-[var(--color-mist)]">
+      <div class="text-sm">
+        <span class="text-[var(--color-stone)]">vanaf</span>
+        <span class="font-display text-xl text-[var(--color-tirol)] ml-1">
+          € {apt.priceFrom}
+        </span>
+        <span class="text-xs text-[var(--color-stone)]">/week</span>
+      </div>
+      <span class="text-sm text-[var(--color-tirol)] group-hover:underline underline-offset-4">
+        Bekijken →
+      </span>
+    </div>
+  </div>
+</a>

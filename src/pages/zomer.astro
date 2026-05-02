@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { IMG } from '../data/images';
+---
+
+<Base
+  title="Zomervakantie in Ehrwald — wandelen, fietsen en bergmeren in Tirol"
+  description="Ehrwald in de zomer: een rustig Tiroler dorp met honderden kilometers wandelroutes, kabelbanen die ook 's zomers draaien, en koele bergmeren binnen handbereik. Compleet seizoen­gids."
+  path="/zomer"
+  image={IMG.alpsFlowers}
+  transparentHeader
+>
+  <section class="relative h-[60vh] overflow-hidden">
+    <img src={IMG.alpsFlowers} alt="Alpenweide met bloemen in Tirol — zomervakantie in Ehrwald" class="absolute inset-0 w-full h-full object-cover" width="1600" height="900" fetchpriority="high" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60"></div>
+    <div class="relative max-w-7xl mx-auto px-6 h-full flex items-end pb-12 text-white">
+      <div>
+        <div class="text-xs uppercase tracking-[0.3em] mb-3 opacity-90">Mei – Oktober</div>
+        <h1 class="font-display text-5xl md:text-7xl drop-shadow-lg">Zomer in Ehrwald</h1>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-6 pt-8">
+    <Breadcrumbs trail={[{ label: 'Home', href: '/' }, { label: 'Zomer in Ehrwald' }]} />
+  </div>
+
+  <article class="prose-warm max-w-3xl mx-auto px-6 py-12">
+    <p class="text-xl leading-relaxed">
+      Wanneer de sneeuw weg is, verandert Ehrwald in een verbazingwekkend stil wandeldorp. Ver weg van de drukte van de grote skigebieden, zit Tirol in deze maanden op zijn allermooist: groen, geurig, en met een hemel die vaak strakblauw boven de Zugspitze hangt.
+    </p>
+
+    <h2>Wandelen — voor elk niveau</h2>
+    <p>
+      Vanuit Haus Stefanie loop je zo de eerste paadjes op. Voor een rustige ochtend volg je het Lärchenpfad — een verharde route door de larikssen­bossen, vlak en geschikt voor kinderwagens. Wil je hoger? Dan brengt de <strong>Ehrwalder Almbahn</strong> je in vijf minuten naar 1.500 meter, waar de echte bergroutes beginnen. Een klassieker: de rondwandeling om de <strong>Seebensee</strong>, een keizers­blauw bergmeer dat in elk fotoboek over Tirol staat.
+    </p>
+
+    <h2>De Zugspitze, ook 's zomers</h2>
+    <p>
+      De <strong>Tiroler Zugspitzbahn</strong> brengt je vanaf Ehrwald-Obermoos in tien minuten naar 2.962 meter. Boven kijk je over vier landen: Oostenrijk, Duitsland, Italië en Zwitserland. Goede wandelschoenen aanraden — ook in juli kan er sneeuw liggen op de top.
+    </p>
+
+    <h2>Fietsen, baden, en luieren</h2>
+    <p>
+      De <strong>Via Claudia Augusta</strong> fietsroute loopt door het dal — een Romeins handelspad, nu geasfalteerd en vlak. Verkoeling vind je in de <strong>Blindsee</strong> of het <strong>Heiterwanger See</strong>, twee gletsjermeren die in augustus net warm genoeg worden om in te zwemmen.
+    </p>
+
+    <h2>Praktisch</h2>
+    <ul>
+      <li>Met de gratis <strong>Zugspitz Arena Card</strong> (krijg je bij aankomst bij de meeste accommodaties) reis je gratis met de bussen, bezoek je musea en krijgt korting op kabelbanen.</li>
+      <li>Beste maanden: juni voor wilde bloemen, juli/augustus voor warmer weer en geopende hutten, september voor de mooiste lichtval.</li>
+      <li>Kinderen: in <strong>Biberwier</strong> ligt een zomertobogganbaan; bij de <strong>Ehrwalder Alm</strong> een vrije speelplek met klauter­toren.</li>
+    </ul>
+
+    <div class="not-prose mt-12 p-8 bg-[var(--color-cream-dark)] rounded-2xl text-center">
+      <h3 class="font-display text-2xl mb-2">Boek je zomerweek</h3>
+      <p class="text-sm text-[var(--color-stone)] mb-4">Vier 4-persoons appartementen, vanaf € 750 per week in mei en juni.</p>
+      <a href="/#appartementen" class="inline-block bg-[var(--color-tirol)] hover:bg-[var(--color-tirol-dark)] text-white px-7 py-3 rounded-full font-medium">
+        Bekijk de appartementen →
+      </a>
+    </div>
+  </article>
+</Base>

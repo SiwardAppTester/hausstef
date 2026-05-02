@@ -1,0 +1,53 @@
+---
+import { NAV, SITE } from '../data/site';
+const path = Astro.url.pathname;
+---
+
+<header class="absolute top-0 inset-x-0 z-30">
+  <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-full bg-[var(--color-tirol)] grid place-items-center text-white font-display text-xl">
+        H
+      </div>
+      <div class="text-white drop-shadow-md">
+        <div class="font-display text-xl leading-none">{SITE.name}</div>
+        <div class="text-xs uppercase tracking-widest opacity-80">Ehrwald · Tirol</div>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-white text-sm font-medium drop-shadow-md">
+      {NAV.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'hover:text-[var(--color-cream)] transition-colors',
+            path === item.href && 'underline underline-offset-8 decoration-2',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href="/contact"
+      class="hidden md:inline-flex items-center gap-2 bg-[var(--color-tirol)] hover:bg-[var(--color-tirol-dark)] text-white px-5 py-2.5 rounded-full text-sm font-medium transition-colors"
+    >
+      Reserveer
+      <span aria-hidden="true">→</span>
+    </a>
+
+    <details class="md:hidden text-white">
+      <summary class="list-none cursor-pointer w-10 h-10 grid place-items-center rounded bg-black/30 backdrop-blur">
+        <span class="sr-only">Menu</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </summary>
+      <div class="absolute right-6 mt-2 bg-white text-[var(--color-wood)] rounded-lg shadow-xl py-2 min-w-[12rem]">
+        {NAV.map((item) => (
+          <a href={item.href} class="block px-4 py-2 hover:bg-[var(--color-cream)] text-sm">{item.label}</a>
+        ))}
+        <a href="/contact" class="block mx-2 mt-2 px-4 py-2 bg-[var(--color-tirol)] text-white rounded text-center text-sm">Reserveer</a>
+      </div>
+    </details>
+  </div>
+</header>

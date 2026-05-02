@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { APARTMENTS } from '../data/apartments';
+import { SITE } from '../data/site';
+---
+
+<Base
+  title="Contact Haus Stefanie — direct boeken bij de Nederlandse eigenaars in Ehrwald"
+  description="Direct contact met de eigenaars van Haus Stefanie. Elk appartement heeft zijn eigen contactpersoon. Bel of mail rechtstreeks — geen tussenpersoon, geen boekingscommissie."
+  path="/contact"
+>
+  <section class="max-w-7xl mx-auto px-6 py-12">
+    <Breadcrumbs trail={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+    <div class="text-xs uppercase tracking-[0.3em] text-[var(--color-tirol)] mb-3">Contact</div>
+    <h1 class="font-display text-5xl md:text-6xl mb-6">Direct met de eigenaar.</h1>
+    <p class="text-lg text-[var(--color-stone)] max-w-2xl mb-12">
+      Elk van de vier appartementen wordt door een andere eigenaar verhuurd. Kies hieronder het appartement waarvoor je belangstelling hebt — je komt dan direct uit bij de juiste persoon.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-16">
+      {APARTMENTS.map((apt) => (
+        <div class="bg-white rounded-2xl p-6 border border-[var(--color-mist)]">
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <h2 class="font-display text-2xl">{apt.name}</h2>
+              <p class="text-sm text-[var(--color-stone)]">{apt.tagline}</p>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-[var(--color-stone)] whitespace-nowrap">
+              {apt.capacity} pers
+            </span>
+          </div>
+          <div class="space-y-2 pt-4 border-t border-[var(--color-mist)]">
+            <div class="text-sm">
+              <span class="text-[var(--color-stone)]">Eigenaar:</span>
+              <span class="ml-1">{apt.owner.name}</span>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a href={`tel:${apt.owner.phone.replace(/\s/g, '')}`} class="inline-flex items-center gap-2 text-sm bg-[var(--color-cream-dark)] hover:bg-[var(--color-mist)] px-4 py-2 rounded-full">
+                {apt.owner.phone}
+              </a>
+              <a href={`/${apt.slug}`} class="inline-flex items-center gap-2 text-sm bg-[var(--color-tirol)] hover:bg-[var(--color-tirol-dark)] text-white px-4 py-2 rounded-full">
+                Aanvraag →
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-[var(--color-wood)] text-[var(--color-cream)] rounded-2xl p-8 md:p-12 grid md:grid-cols-2 gap-10">
+      <div>
+        <div class="text-xs uppercase tracking-[0.3em] opacity-70 mb-3">Adres</div>
+        <h3 class="font-display text-3xl text-white mb-4">Haus Stefanie</h3>
+        <address class="not-italic opacity-90 leading-relaxed">
+          {SITE.address.street}<br />
+          {SITE.address.postalCode} {SITE.address.city}<br />
+          {SITE.address.region}, Oostenrijk
+        </address>
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${SITE.address.lat},${SITE.address.lng}`}
+          target="_blank"
+          rel="noopener"
+          class="inline-block mt-4 text-sm underline underline-offset-4"
+        >
+          Open in Google Maps →
+        </a>
+      </div>
+      <div class="aspect-video md:aspect-auto rounded-xl overflow-hidden">
+        <iframe
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${SITE.address.lng - 0.02}%2C${SITE.address.lat - 0.01}%2C${SITE.address.lng + 0.02}%2C${SITE.address.lat + 0.01}&layer=mapnik&marker=${SITE.address.lat}%2C${SITE.address.lng}`}
+          loading="lazy"
+          class="w-full h-full border-0"
+          title="Haus Stefanie op de kaart"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</Base>

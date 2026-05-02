@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { IMG } from '../data/images';
+---
+
+<Base
+  title="Wintersport in Ehrwald — sneeuwzeker dankzij de Zugspitze­gletscher"
+  description="Ehrwald is onderdeel van de Zugspitz Arena: zes skigebieden, 142 km piste, en gletscherski tot in mei. Een complete gids voor je skiweek in Tirol."
+  path="/winter"
+  image={IMG.snowMountain}
+  transparentHeader
+>
+  <section class="relative h-[60vh] overflow-hidden">
+    <img src={IMG.snowMountain} alt="Besneeuwde berg in de Zugspitz Arena — wintersport in Ehrwald, Tirol" class="absolute inset-0 w-full h-full object-cover" width="1600" height="900" fetchpriority="high" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60"></div>
+    <div class="relative max-w-7xl mx-auto px-6 h-full flex items-end pb-12 text-white">
+      <div>
+        <div class="text-xs uppercase tracking-[0.3em] mb-3 opacity-90">December – April</div>
+        <h1 class="font-display text-5xl md:text-7xl drop-shadow-lg">Winter in Ehrwald</h1>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-6 pt-8">
+    <Breadcrumbs trail={[{ label: 'Home', href: '/' }, { label: 'Winter in Ehrwald' }]} />
+  </div>
+
+  <article class="prose-warm max-w-3xl mx-auto px-6 py-12">
+    <p class="text-xl leading-relaxed">
+      Ehrwald ligt op 1.000 meter, maar de echte sneeuwgarantie zit hoger: de <strong>Zugspitze­gletscher</strong>, op 2.600 meter, levert pistes die soms tot in mei open blijven. Daarmee is Ehrwald één van de weinige Tiroolse dorpen waar je zelfs in een slechte sneeuwwinter altijd kunt skiën.
+    </p>
+
+    <h2>Zes skigebieden, één skipas</h2>
+    <p>
+      De <strong>Zugspitz Arena Skipas</strong> dekt zes gebieden: Ehrwalder Alm, Wettersteinbahnen, Marienberg, Grubigstein (Lermoos), Zugspitze gletscher en Bichlbach. In totaal ruim 142 km piste — genoeg voor een week zonder twee keer dezelfde afdaling te hoeven nemen.
+    </p>
+
+    <h2>Voor wie is het geschikt?</h2>
+    <ul>
+      <li><strong>Beginners en gezinnen</strong>: Ehrwalder Alm heeft brede blauwe pistes en een ruime kinderwereld.</li>
+      <li><strong>Gevorderden</strong>: Grubigstein in Lermoos heeft de langste afdalingen — tot 7 km lang.</li>
+      <li><strong>Powderfans</strong>: bovenop de Zugspitze ligt buiten de pistes vaak wekenlang ongerept poeder.</li>
+      <li><strong>Langlaufers</strong>: rondom Ehrwald loopt 115 km gepreparate loipe, gratis te gebruiken.</li>
+    </ul>
+
+    <h2>Niet-skiërs vervelen zich niet</h2>
+    <p>
+      Een toeristisch dorp blijft Ehrwald niet — wat een groot pluspunt is. Wel: een mooi <strong>winterwandelnet</strong> (40+ km gepreparde paden), <strong>rodelbanen</strong> bij Ehrwalder Alm en Marienberg, en <strong>paardrijden</strong> door de besneeuwde weiden. De kerstmarkt in december is klein maar oprecht — geen gluehwein-toeristenval.
+    </p>
+
+    <h2>Praktisch</h2>
+    <ul>
+      <li>Skihuur kan in het dorp bij <strong>Sport Schmid</strong> of <strong>Intersport Schneider</strong> — beide op loopafstand.</li>
+      <li>Skibus rijdt gratis tussen alle gebieden, met halte op 200 meter van Haus Stefanie.</li>
+      <li>Beste maanden: half december tot eind maart voor optimale sneeuwcondities.</li>
+      <li>Hoogseizoen: kerst/oud&nieuw en carnaval. Buiten die weken is het dorp duidelijk rustiger.</li>
+    </ul>
+
+    <div class="not-prose mt-12 p-8 bg-[var(--color-cream-dark)] rounded-2xl text-center">
+      <h3 class="font-display text-2xl mb-2">Boek je skiweek</h3>
+      <p class="text-sm text-[var(--color-stone)] mb-4">Wintertarief vanaf € 1.000 per week voor 4 personen, alles inbegrepen.</p>
+      <a href="/#appartementen" class="inline-block bg-[var(--color-tirol)] hover:bg-[var(--color-tirol-dark)] text-white px-7 py-3 rounded-full font-medium">
+        Bekijk de appartementen →
+      </a>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,35 @@
+---
+type Props = { items: { q: string; a: string }[]; title?: string };
+const { items, title = 'Veelgestelde vragen' } = Astro.props;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<section class="bg-white py-20 border-t border-[var(--color-mist)]">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.3em] text-[var(--color-tirol)] mb-3">FAQ</div>
+    <h2 class="font-display text-4xl md:text-5xl mb-10">{title}</h2>
+
+    <div class="space-y-3">
+      {items.map((item, i) => (
+        <details class="group bg-[var(--color-cream)] rounded-xl border border-[var(--color-mist)] overflow-hidden" open={i === 0}>
+          <summary class="cursor-pointer list-none px-6 py-5 flex items-center justify-between gap-4 hover:bg-[var(--color-cream-dark)] transition-colors">
+            <span class="font-medium text-[var(--color-wood)]">{item.q}</span>
+            <span class="text-[var(--color-tirol)] text-2xl group-open:rotate-45 transition-transform leading-none">+</span>
+          </summary>
+          <div class="px-6 pb-5 text-[var(--color-stone)] leading-relaxed" set:html={item.a} />
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

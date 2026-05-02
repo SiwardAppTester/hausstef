@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #faf7f2;
+  --color-cream-dark: #f0ebe1;
+  --color-tirol: #c8102e;
+  --color-tirol-dark: #9c0c23;
+  --color-pine: #2e5d4f;
+  --color-wood: #3e2723;
+  --color-stone: #4a4a4a;
+  --color-mist: #e8e4dc;
+
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background: var(--color-cream);
+  color: var(--color-wood);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-wood);
+}
+
+.prose-warm p { @apply text-stone-700 leading-relaxed; }
+.prose-warm h2 { @apply text-3xl md:text-4xl mt-12 mb-4; }
+.prose-warm h3 { @apply text-2xl mt-8 mb-3; }
+.prose-warm a { @apply text-[var(--color-tirol)] underline underline-offset-4 hover:text-[var(--color-tirol-dark)]; }

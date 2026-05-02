@@ -1,0 +1,170 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+
+const ehrwaldFaq = [
+  {
+    q: 'Hoe groot is Ehrwald?',
+    a: 'Ehrwald heeft <strong>ongeveer 2.600 inwoners</strong> en ligt op 1.000 meter hoogte in het Tiroler bezirk Reutte. Het is groot genoeg voor alle voorzieningen (twee supermarkten, bakker, apotheek, dokter, banken, restaurants), klein genoeg om op zaterdagavond niet vol te lopen.',
+  },
+  {
+    q: 'Wat is het hoogteverschil tussen het dorp en de Zugspitze?',
+    a: 'Ehrwald ligt op 1.000 m, de top van de Zugspitze op 2.962 m — een hoogteverschil van bijna 2.000 m. De <strong>Tiroler Zugspitzbahn</strong> overbrugt dat in tien minuten in een gondel. Vanaf de top kijk je over Oostenrijk, Duitsland, Italië en Zwitserland.',
+  },
+  {
+    q: 'Welke skigebieden horen bij de Zugspitz Arena?',
+    a: 'Zes gebieden: <strong>Ehrwalder Alm</strong> (familievriendelijk), <strong>Wettersteinbahnen</strong> en <strong>Marienberg</strong> (Biberwier), <strong>Grubigstein</strong> (Lermoos, langste afdalingen), <strong>Bichlbach</strong> (kleinschalig) en de <strong>Zugspitze­gletscher</strong>. Eén skipas voor alle zes, in totaal 142 km piste.',
+  },
+  {
+    q: 'Is er een supermarkt in Ehrwald?',
+    a: 'Ja, twee: <strong>MPreis</strong> (groot, breed assortiment, op 400 m van Haus Stefanie) en <strong>Spar</strong> (in het centrum). Beide ook op zondag deels open.',
+  },
+  {
+    q: 'Welke restaurants zijn aan te raden?',
+    a: '<strong>Schwarzer Adler</strong> voor klassiek-Tirool, <strong>Sonnencafé</strong> voor lichte lunch en goede koffie, <strong>Tiroler Stuben</strong> voor ruime porties na het skiën, <strong>Bäckerei Ruepp</strong> voor verse Brezeln en Apfelstrudel.',
+  },
+  {
+    q: 'Is Ehrwald geschikt voor families met kleine kinderen?',
+    a: 'Heel erg. Het dorp heeft korte afstanden, autoluwe paden, een gratis kinderspeelplek bij Ehrwalder Alm, lage skiliften (toverstok-lift voor de allerkleinsten), en een groot zwembad (Erlebnistherme Ehrwald) voor regenachtige dagen.',
+  },
+];
+
+const placeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Place',
+  name: 'Ehrwald, Tirol',
+  description: 'Ehrwald is een Tiroler bergdorp van 2.600 inwoners op 1.000 meter hoogte, vlak onder de Zugspitze. Onderdeel van de Zugspitz Arena.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Ehrwald',
+    addressRegion: 'Tirol',
+    addressCountry: 'AT',
+    postalCode: '6632',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 47.4019, longitude: 10.9136 },
+};
+---
+
+<Base
+  title="Ehrwald, Tirol — alles wat je moet weten over het dorp onder de Zugspitze"
+  description="Een complete gids voor Ehrwald: dorpsleven, skigebieden Zugspitz Arena, restaurants, supermarkten, zomeractiviteiten en de geschiedenis. Door Nederlanders die er al 18 jaar verhuren."
+  path="/ehrwald"
+  image={IMG.villageAerial}
+  schema={placeSchema}
+  transparentHeader
+>
+  <section class="relative h-[60vh] overflow-hidden">
+    <img src={IMG.villageAerial} alt="Ehrwald in Tirol vanuit de lucht — dorp onder de Zugspitze" class="absolute inset-0 w-full h-full object-cover" width="1600" height="1067" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60"></div>
+    <div class="relative max-w-7xl mx-auto px-6 h-full flex items-end pb-12 text-white">
+      <div>
+        <div class="text-xs uppercase tracking-[0.3em] mb-3 opacity-90">Tirol · Oostenrijk</div>
+        <h1 class="font-display text-5xl md:text-7xl drop-shadow-lg">Ehrwald</h1>
+        <p class="mt-2 opacity-90 max-w-xl">2.600 inwoners, 1.000 meter hoogte, één Zugspitze.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-6 pt-8">
+    <Breadcrumbs trail={[{ label: 'Home', href: '/' }, { label: 'Ehrwald' }]} />
+  </div>
+
+  <article class="prose-warm max-w-3xl mx-auto px-6 py-12">
+    <p class="text-xl leading-relaxed">
+      Ehrwald is geen ski-resort. Het is een echt dorp, met boeren die nog koeien houden, een kerk uit de 18e eeuw en een Hauptstraße die 's avonds rustig is. Dat persoonlijke karakter is precies wat het onderscheidt van de overlopen plaatsen verderop in Tirol.
+    </p>
+
+    <h2>Het dorp</h2>
+    <p>
+      Ehrwald telt <strong>2.600 inwoners</strong> en ligt op 1.000 meter hoogte aan de voet van de Zugspitze. Centrum is de <strong>Hauptstraße</strong>, met de barokke parochiekerk uit 1742, twee bakkers, twee supermarkten (MPreis en Spar), een paar souvenirwinkels, een sportwinkel voor skihuur en een handvol restaurants. Het dorp is in onder een kwartier doorgelopen.
+    </p>
+    <p>
+      Onze gasten merken meteen één ding op: er hangt geen 'georganiseerde gezelligheid' zoals in pakkettouristische plaatsen. Ehrwald wordt vooral bezocht door Duitsers, Nederlanders en lokale Tirolers die hun weekenden in eigen land doorbrengen.
+    </p>
+
+    <h2>De Zugspitze</h2>
+    <p>
+      Met <strong>2.962 meter</strong> de hoogste berg van Duitsland — al ligt het topstation aan Oostenrijkse zijde, vanuit Ehrwald. De <strong>Tiroler Zugspitzbahn</strong> brengt je vanaf het station Ehrwald-Obermoos in tien minuten omhoog. Op heldere dagen zie je tot in Italië en Zwitserland.
+    </p>
+    <p>
+      Bovenop ligt 's winters een gletscherski­gebied (vaak nog open in mei), 's zomers een uitgebreid wandelnet en een museum over de geschiedenis van de berg. Restaurant 'Panorama 2962' boven is verrassend redelijk geprijsd voor een toplocatie.
+    </p>
+
+    <h2>Skigebieden — de Zugspitz Arena</h2>
+    <p>
+      Ehrwald is één van vijf dorpen in de Zugspitz Arena, samen goed voor <strong>142 km piste op zes bergen</strong>:
+    </p>
+    <ul>
+      <li><strong>Ehrwalder Alm</strong> — direct boven het dorp. Brede blauwe pistes, ideaal voor families en beginners. Toverstok-lift voor kinderen.</li>
+      <li><strong>Wettersteinbahnen / Marienberg</strong> (Biberwier) — middelmoeilijk, korte rijen, goede après-ski hut <em>Hochfeldhütte</em>.</li>
+      <li><strong>Grubigstein</strong> (Lermoos) — gevorderd. Met 7 km Hexenkessel-afdaling de langste in het gebied.</li>
+      <li><strong>Bichlbach</strong> — een familieberg in zakformaat, vaak vergeten en daardoor leeg.</li>
+      <li><strong>Zugspitze­gletscher</strong> — boven 2.000 m, sneeuwzeker tot in mei, breed en weinig boomgrens.</li>
+    </ul>
+    <p>
+      Eén <strong>Zugspitz Arena Skipas</strong> dekt alle zes gebieden. De <strong>gratis skibus</strong> rijdt elke 30 minuten tussen alle dorpen en bergstations en stopt op 200 m van Haus Stefanie.
+    </p>
+
+    <h2>Zomer in Ehrwald</h2>
+    <p>
+      'S zomers verandert Ehrwald in een wandeldorp. De <strong>Ehrwalder Almbahn</strong> blijft draaien en brengt je in vijf minuten naar 1.500 m, waar de echte bergroutes beginnen. Beroemde dagtochten:
+    </p>
+    <ul>
+      <li><strong>Seebensee</strong> — keizers­blauw bergmeer, foto-iconisch. Vanaf de bergstation 1u30 lopen.</li>
+      <li><strong>Coburger Hütte</strong> — alpine hut op 1.917 m, pittige klim maar haalbaar voor wandelaars met basis­conditie.</li>
+      <li><strong>Lermoos – Ehrwald Sonnenwendbahn</strong> — vlakke familietocht door de larikssen­bossen.</li>
+    </ul>
+    <p>
+      Andere zomeractiviteiten in en rond Ehrwald: <strong>fietsen</strong> op de Via Claudia Augusta, <strong>zwemmen</strong> in de Blindsee of Heiterwanger See, <strong>paardrijden</strong> bij de Pferdehof Riml, en <strong>klimmen</strong> in de via ferrata's op de Sonnenspitze.
+    </p>
+
+    <h2>Restaurants en cafés</h2>
+    <ul>
+      <li><strong>Schwarzer Adler</strong> — klassiek Tiroler, schnitzel en Käsespätzle die niet uit een fabriek komen. Hauptstraße.</li>
+      <li><strong>Sonnencafé</strong> — hipper, lichte lunchgerechten en goede koffie. Op de Hauptstraße.</li>
+      <li><strong>Tiroler Stuben</strong> — gezellig na het skiën, ruime porties, eerlijke prijzen. Ook open voor lunch.</li>
+      <li><strong>Bäckerei Ruepp</strong> — verse Brezeln en Apfelstrudel; al drie generaties in familiehanden.</li>
+      <li><strong>Spielmann's</strong> — pizza en pasta, populair onder Duitse skiërs.</li>
+      <li><strong>Bergrestaurant Ehrwalder Alm</strong> — boven, met terras en uitzicht. Beste schnitzel-met-uitzicht-prijsverhouding.</li>
+    </ul>
+
+    <h2>Voorzieningen</h2>
+    <ul>
+      <li><strong>Supermarkt:</strong> MPreis (op 400 m van Haus Stefanie) en Spar (centrum)</li>
+      <li><strong>Apotheek:</strong> Apotheke Zugspitze, Hauptstraße</li>
+      <li><strong>Huisarts:</strong> twee praktijken in het dorp, beide Engels-/Duitstalig</li>
+      <li><strong>Bank/pinautomaat:</strong> Raiffeisenbank Ehrwald op de Hauptstraße</li>
+      <li><strong>Tankstation:</strong> Avia, aan de doorgaande weg</li>
+      <li><strong>Skihuur:</strong> Sport Schmid en Intersport Schneider</li>
+      <li><strong>Zwembad:</strong> Erlebnistherme Ehrwald (op 1 km)</li>
+    </ul>
+
+    <h2>Hoe kom je in Ehrwald?</h2>
+    <p>
+      <strong>Auto:</strong> ±850 km vanuit Utrecht, 9–10 uur rijden via München. <strong>Vliegtuig:</strong> Innsbruck (75 km), München (130 km) of Memmingen (140 km). <strong>Trein:</strong> via München-Garmisch met de Mittenwaldbahn rechtstreeks naar Ehrwald. <a href="/route">Lees onze complete reis­gids →</a>
+    </p>
+
+    <h2>Adres en bereikbaarheid Haus Stefanie</h2>
+    <p>
+      Haus Stefanie ligt aan de <strong>{SITE.address.street}</strong> — een rustige zijstraat op vijf minuten lopen van het dorpscentrum. De skibushalte ligt op 200 meter, de supermarkt MPreis op 400 meter, de Ehrwalder Almbahn op vijf minuten rijden.
+    </p>
+
+    <div class="not-prose mt-12 grid sm:grid-cols-2 gap-4">
+      <a href="/zomer" class="group relative aspect-video rounded-2xl overflow-hidden">
+        <img src={IMG.alpsFlowers} alt="Zomerwandelen in Ehrwald, Tirol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" width="1600" height="900" />
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute bottom-0 p-6 text-white font-display text-2xl">Zomer in Ehrwald →</div>
+      </a>
+      <a href="/winter" class="group relative aspect-video rounded-2xl overflow-hidden">
+        <img src={IMG.snowMountain} alt="Wintersport in Ehrwald, Zugspitz Arena" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" width="1600" height="900" />
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute bottom-0 p-6 text-white font-display text-2xl">Winter in Ehrwald →</div>
+      </a>
+    </div>
+  </article>
+
+  <Faq items={ehrwaldFaq} title="Veelgestelde vragen over Ehrwald" />
+</Base>

@@ -1,0 +1,134 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+
+const routeFaq = [
+  {
+    q: 'Hoeveel uur rijden is het van Utrecht naar Ehrwald?',
+    a: 'Ongeveer <strong>9 à 10 uur</strong> rijden, afhankelijk van het verkeer rond München. De afstand is ±850 km via de A12, A3, A8 en B23.',
+  },
+  {
+    q: 'Welke vignet heb ik nodig?',
+    a: 'De <strong>Oostenrijkse vignet</strong> kost € 10 voor 10 dagen of € 27,80 voor 2 maanden (digitaal of sticker). Op de B23 vlak voor Ehrwald hoef je dezelfde dag niet over een tolweg, maar zodra je over de Brenner of de Felbertauerntunnel komt wel.',
+  },
+  {
+    q: 'Is het laatste stuk lastig met sneeuw?',
+    a: 'De B23 (Fernpassbundesstrasse) wordt 24/7 sneeuwgevrij gehouden. Winterbanden zijn in Oostenrijk tussen 1 november en 15 april verplicht. <strong>Sneeuwkettingen meenemen</strong> wordt aangeraden in december-februari, maar je hebt ze zelden nodig op deze route.',
+  },
+  {
+    q: 'Welke luchthaven is het handigst?',
+    a: '<strong>Innsbruck (75 km)</strong> is het dichtstbij en perfect voor wintervluchten — directe verbindingen vanaf Schiphol en Eindhoven in het seizoen. <strong>München (130 km)</strong> heeft het hele jaar door meer keus en goedkopere tickets. <strong>Memmingen (140 km)</strong> is interessant als je low-cost vliegt met Ryanair.',
+  },
+  {
+    q: 'Kun je met de trein naar Ehrwald?',
+    a: 'Ja. <strong>Vanaf Utrecht: ICE naar München (±7u) → DB-trein naar Garmisch-Partenkirchen → ÖBB-trein over de Mittenwaldbahn naar Ehrwald</strong> — totale reistijd ±10 uur. Een nachttrein (NightJet) van Amsterdam naar Innsbruck is een goed alternatief, met overstap op de bus naar Ehrwald.',
+  },
+  {
+    q: 'Is er parkeergelegenheid bij Haus Stefanie?',
+    a: 'Ja, <strong>gratis privé-parkeergelegenheid</strong> direct bij het huis voor één auto per appartement. Een tweede auto kan in overleg.',
+  },
+];
+
+const routeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TravelAction',
+  fromLocation: { '@type': 'Country', name: 'Nederland' },
+  toLocation: {
+    '@type': 'Place',
+    name: 'Haus Stefanie, Ehrwald',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.address.street,
+      postalCode: SITE.address.postalCode,
+      addressLocality: SITE.address.city,
+      addressCountry: SITE.address.country,
+    },
+  },
+};
+---
+
+<Base
+  title="Route naar Ehrwald — auto, trein of vliegtuig vanuit Nederland"
+  description="Hoe kom je in Ehrwald, Tirol? Een complete reisgids vanuit Nederland: 850 km met de auto, dichtstbijzijnde luchthavens (Innsbruck, München, Memmingen) en treinverbindingen."
+  path="/route"
+  image={IMG.snowMountain}
+  schema={routeSchema}
+>
+  <div class="max-w-7xl mx-auto px-6 pt-8">
+    <Breadcrumbs trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Route naar Ehrwald' },
+    ]} />
+  </div>
+
+  <article class="prose-warm max-w-3xl mx-auto px-6 py-12">
+    <div class="text-xs uppercase tracking-[0.3em] text-[var(--color-tirol)] mb-3">Reisinformatie</div>
+    <h1 class="font-display text-5xl md:text-6xl mb-6">Route naar Ehrwald</h1>
+    <p class="text-xl leading-relaxed">
+      Ehrwald ligt op <strong>±850 km vanuit Utrecht</strong>, vlak over de Duits-Oostenrijkse grens in Tirol. Geen ingewikkelde routes, geen verplichte tolwegen tot vlak voor de bestemming — gewoon doorrijden tot je de Zugspitze ziet liggen.
+    </p>
+
+    <h2>Met de auto vanuit Nederland</h2>
+    <p>
+      De gebruikelijke route loopt langs <strong>Düsseldorf → Frankfurt → München → Garmisch-Partenkirchen → Ehrwald</strong>. Snelweg het hele eind, behalve de laatste 50 km die over de B23 (Fernpassbundesstrasse) lopen.
+    </p>
+    <ul>
+      <li><strong>Utrecht → Frankfurt</strong>: 4 uur (480 km, A12 / A3)</li>
+      <li><strong>Frankfurt → München</strong>: 4 uur (390 km, A3 / A8)</li>
+      <li><strong>München → Ehrwald</strong>: 1 uur 45 (140 km, A95 / B23)</li>
+    </ul>
+    <p>
+      Zorg vooraf voor een <strong>Oostenrijks vignet</strong> (€ 10 voor 10 dagen, online te bestellen of bij Duitse tankstations vlak voor de grens). De B23 zelf is geen tolweg.
+    </p>
+
+    <h2>Met het vliegtuig</h2>
+    <p>
+      Drie luchthavens bedienen Ehrwald goed:
+    </p>
+    <ul>
+      <li><strong>Innsbruck (INN)</strong> — 75 km, ±1 uur rijden. Beste optie in het skiseizoen: directe vluchten vanaf Schiphol en Eindhoven, en je rijdt niet over de Alpen om er te komen.</li>
+      <li><strong>München (MUC)</strong> — 130 km, ±1u30 rijden. Het hele jaar door beste keuze en meeste vluchten; vaak ook goedkoper.</li>
+      <li><strong>Memmingen (FMM)</strong> — 140 km, ±1u30 rijden. Interessant voor low-cost vluchten met Ryanair.</li>
+    </ul>
+    <p>
+      Vanaf alle drie kun je een huurauto pakken, of via Garmisch met de trein verder naar Ehrwald reizen.
+    </p>
+
+    <h2>Met de trein</h2>
+    <p>
+      Het kan, en het is ontspannen — al duurt het langer dan met de auto:
+    </p>
+    <ol>
+      <li><strong>Utrecht → München</strong> met de ICE (±7 uur, 1 overstap in Frankfurt)</li>
+      <li><strong>München → Garmisch-Partenkirchen</strong> met de DB Regio (±1u20)</li>
+      <li><strong>Garmisch → Ehrwald</strong> met de ÖBB Mittenwaldbahn (±25 min)</li>
+    </ol>
+    <p>
+      Bagagetip: een week ski-uitrusting plus 4 koffers krijg je makkelijker in een auto dan in een ICE. Voor een korte stedentrip-achtige vakantie werkt de trein prima.
+    </p>
+    <p>
+      Een aantrekkelijk alternatief: de <strong>NightJet vanuit Amsterdam naar Innsbruck</strong>. Slapen in de trein, wakker worden in Tirol, en met de bus of huurauto het laatste stuk naar Ehrwald.
+    </p>
+
+    <h2>Bij ons aankomen</h2>
+    <p>
+      Haus Stefanie ligt aan de <strong>{SITE.address.street}</strong> — een rustige zijstraat op vijf minuten lopen van het centrum van Ehrwald. Vanaf de hoofdweg (B179) sla je af richting de Almbahn en volg je de borden 'Ehrwald Zentrum'. We hebben gratis privé-parkeerplekken bij het huis. De skibus stopt op 200 m.
+    </p>
+    <p>
+      Standaard inchecktijd is <strong>16:00 op zaterdag</strong>; uitchecken vóór <strong>10:00 op zaterdag</strong>. Andere aankomstdagen zijn buiten het hoogseizoen vaak mogelijk in overleg.
+    </p>
+
+    <div class="not-prose mt-12 p-8 bg-[var(--color-cream-dark)] rounded-2xl text-center">
+      <h3 class="font-display text-2xl mb-2">Klaar om te boeken?</h3>
+      <p class="text-sm text-[var(--color-stone)] mb-4">Vier 4-persoons appartementen, persoonlijk verhuurd door de familie.</p>
+      <a href="/#appartementen" class="inline-block bg-[var(--color-tirol)] hover:bg-[var(--color-tirol-dark)] text-white px-7 py-3 rounded-full font-medium">
+        Bekijk de appartementen →
+      </a>
+    </div>
+  </article>
+
+  <Faq items={routeFaq} title="Veelgestelde vragen over de reis" />
+</Base>

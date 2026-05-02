@@ -1,0 +1,80 @@
+---
+import { SITE } from '../data/site';
+
+type Props = {
+  title: string;
+  description: string;
+  path?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+};
+
+const {
+  title,
+  description,
+  path = '',
+  image = `https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=80`,
+  type = 'website',
+  schema,
+} = Astro.props;
+
+const url = `${SITE.url}${path}`;
+const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  '@id': `${SITE.url}/#lodging`,
+  name: SITE.name,
+  description: SITE.description,
+  url: SITE.url,
+  image,
+  priceRange: '€700–€1075 per week',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.address.street,
+    postalCode: SITE.address.postalCode,
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.region,
+    addressCountry: SITE.address.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: SITE.address.lat,
+    longitude: SITE.address.lng,
+  },
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'WiFi', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Keuken', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Ski-opbergruimte', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Terras of balkon', value: true },
+  ],
+};
+
+const schemas = Array.isArray(schema) ? [orgSchema, ...schema] : schema ? [orgSchema, schema] : [orgSchema];
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={SITE.keywords.join(', ')} />
+<meta name="author" content={SITE.name} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={url} />
+
+<meta property="og:type" content={type} />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:image" content={image} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<script type="application/ld+json" set:html={JSON.stringify(schemas)} />
